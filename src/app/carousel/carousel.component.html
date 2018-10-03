@@ -1,0 +1,17 @@
+<div class="container slideshow-container">
+  <div class="mySlides">
+    <div class="img-container">
+      <img src="{{item.webformatURL}}" [ngClass]="{'active': slideIndex === i+1}" *ngFor="let item of visibleSlides; let i = index" />
+    </div>
+    <img *ngIf="current.webformatURL" src="{{current.webformatURL}}" class="carousel-image">
+  </div>
+  <div class="desktop-controls">
+    <button type="btn" class="btn" (click)="prevSlide()">Prev</button>
+    <button type="btn" class="btn" (click)="nextSlide()">Next</button>
+  </div>
+
+  <div class="mobile-controls">
+    <a class="prev" (click)="prevSlide()"><img src="../../assets/img/arrow.svg" class="left"/></a>
+    <a class="next" (click)="nextSlide()"><img src="../../assets/img/arrow.svg" class="right"/></a>
+  </div>
+</div>

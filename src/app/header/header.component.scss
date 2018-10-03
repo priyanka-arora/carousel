@@ -1,0 +1,36 @@
+.app-header {
+  background-color: #e2e2e2;
+  height: 80px;
+  padding: 1px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+
+  .brand {
+    display: none;
+
+    img {
+      width: 150px;
+      height: 50px;
+    }
+  }
+
+  .side-nav {
+    text-align: center;
+  }
+}
+
+@media (min-width: 468px) {
+  .app-header {
+    padding-top: 15px;
+
+    .brand {
+      position: relative;
+      display: inline-block;
+      margin-left: 20px;
+    }
+
+    .side-nav {
+      float: right;
+      margin-right: 20px;
+    }
+  }
+}
