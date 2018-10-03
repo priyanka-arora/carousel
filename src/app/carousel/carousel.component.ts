@@ -12,6 +12,7 @@ export class CarouselComponent implements AfterViewInit, OnInit {
   isVisible = 'visible';
   slidesData: any;
   slideIndex = 0;
+  carouselSize = 5;
 
   /**
    * Set the visibility of control on window resize
@@ -74,7 +75,7 @@ export class CarouselComponent implements AfterViewInit, OnInit {
   setVisibleSlides(n) {
     const arrLength = this.slidesData.length;
     this.visibleSlides = [];
-    for (let j = 0; j < 5; j++) {
+    for (let j = 0; j < this.carouselSize; j++) {
       this.visibleSlides.push(this.slidesData[(n + j) % arrLength])
     }
   }
