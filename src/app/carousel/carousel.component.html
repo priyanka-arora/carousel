@@ -1,9 +1,10 @@
 <div class="container slideshow-container">
   <div class="mySlides">
-    <div class="img-container">
-      <img src="{{item.webformatURL}}" [ngClass]="{'active': slideIndex === i+1}" *ngFor="let item of visibleSlides; let i = index" />
+    <div class="img-container" *ngFor="let item of visibleSlides">
+      <img src="{{item.webformatURL}}" alt="{{item.tags}}" />
+      <span class="title"><strong>Title:</strong>{{item.user}}</span>
     </div>
-    <img *ngIf="current.webformatURL" src="{{current.webformatURL}}" class="carousel-image">
+    <img *ngIf="current.webformatURL" src="{{current.webformatURL}}" class="carousel-image" alt="{{current.tags}}" >
   </div>
   <div class="desktop-controls">
     <button type="btn" class="btn" (click)="prevSlide()">Prev</button>
@@ -11,7 +12,7 @@
   </div>
 
   <div class="mobile-controls">
-    <a class="prev" (click)="prevSlide()"><img src="../../assets/img/arrow.svg" class="left"/></a>
-    <a class="next" (click)="nextSlide()"><img src="../../assets/img/arrow.svg" class="right"/></a>
+    <a class="prev" (click)="prevSlide()"><img src="../../assets/img/arrow.svg" class="left" alt="Left Arrow" /></a>
+    <a class="next" (click)="nextSlide()"><img src="../../assets/img/arrow.svg" class="right" alt="Right Arrow" /></a>
   </div>
 </div>

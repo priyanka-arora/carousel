@@ -13,7 +13,7 @@ export class CarouselService {
    * This method is going to fetch data from server and returns an observable array
    */
   fetchCarouselData(): Observable<any> {
-    const url = 'https://pixabay.com/api/?key=9656065-a4094594c34f9ac14c7fc4c39&q=beautiful+landscape&image_type=photo&page=1&per_page=6';
+    const url = 'https://pixabay.com/api/?key=9656065-a4094594c34f9ac14c7fc4c39&q=beautiful+landscape&image_type=photo&page=1&per_page=10';
     return this.http.get(url).map(response => response.json());
   }
 
