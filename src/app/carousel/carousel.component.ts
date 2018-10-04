@@ -9,7 +9,7 @@ import { CarouselService } from '../services/carousel.service';
 export class CarouselComponent implements AfterViewInit, OnInit {
   current = {};
   visibleSlides = [];
-  isVisible = 'visible';
+  isMobileView = true;
   slidesData: any;
   slideIndex = 0;
   carouselSize = 5;
@@ -20,11 +20,7 @@ export class CarouselComponent implements AfterViewInit, OnInit {
    * @param {[event]}  '$event']) onWindowResize( event object
    */
   @HostListener('window:resize', ['$event']) onWindowResize() {
-    if (window.innerWidth < 769) {
-      this.isVisible = 'visible';
-    } else {
-      this.isVisible = 'hidden';
-    }
+    this.checkDevice();
   }
 
   constructor(private carouselService: CarouselService) {
@@ -32,13 +28,20 @@ export class CarouselComponent implements AfterViewInit, OnInit {
   }
 
   /**
-   * Initialize the component and set the visibility of control based on the size
+   * Initialize the component and set the flag based on the size
    */
   ngOnInit() {
+    this.checkDevice();
+  }
+
+  /**
+   * Set the flag for mobile device
+   */
+  checkDevice() {
     if (window.innerWidth < 769) {
-      this.isVisible = 'visible';
+      this.isMobileView = true;
     } else {
-      this.isVisible = 'hidden';
+      this.isMobileView = false;
     }
   }
 
@@ -63,7 +66,7 @@ export class CarouselComponent implements AfterViewInit, OnInit {
     if (n < 0) { this.slideIndex = this.slidesData.length - 1 }
 
     this.current = this.slidesData[this.slideIndex]
-    if (this.isVisible === 'hidden') {
+    if (!this.isMobileView) {
       this.setVisibleSlides(this.slideIndex);
     }
   }
